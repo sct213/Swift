@@ -1,4 +1,5 @@
 import Swift
+import PlaygroundSupport
 
 /*
  Any - Swift의 모든 타입을 지칭
@@ -238,3 +239,303 @@ func runAnother(function: (String, String) -> Void) {
 }
 runAnother(function: greeting(friend:me:))
 runAnother(function: someFunction)
+
+/* MARK: - if-else
+ 
+    if condition {
+        statements
+    } else if condition {
+        statements
+    } else {
+        statements
+    }
+    
+ */
+
+var someInteger: Int = 100
+
+if someInteger < 100 {
+    print("100 미만")
+} else if someInteger > 100 {
+    print("100 초과")
+} else {
+    print("100")
+}
+
+// 스위프트의 조건에는 항상 Bool 타입이 들어와야 합니다.
+// someInteger는 Bool 타입이 아닌 Int 타입이기 때문에 컴파일 오류가 발생합니다.
+// if someInteger { }
+
+//MARK: - Switch
+
+/*
+ switch value {
+    case pattern:
+        code
+    default:
+        code
+ }
+ */
+
+// 범위 연산자를 활용하면 더욱 쉽고 유용합니다.
+switch someInteger {
+case 0:
+    print("zero")
+case 1..<100:
+    print("1~99")
+case 100:
+    print("100")
+case 101...Int.max:
+    print("over 100")
+default:
+    print("Unknown")
+}
+
+// 정수 외의 대부분의 기본 타입을 사용할 수 있습니다.
+switch "Yang" {
+case "jake":
+    print("jake")
+    fallthrough // break를 자동으로 넣지 않음
+case "mina":
+    print("mina")
+case "Yang":
+    print("Yang!!")
+default:
+    print("Unknown")
+}
+
+
+//MARK: - 반복문
+
+var integers1 = [1, 2, 3]
+let people = ["Yang": 10, "eric": 15, "mike": 12]   // dictionary
+
+/* MARK: - for-in
+    
+    for item in items {
+        code
+    }
+*/
+
+for integer in integers1 {
+    print(integer)
+}
+
+// Dictionary의 item은 key와 value로 구성된 튜플 타입입니다.
+for (name, age) in people {
+    print("\(name): \(age)")
+}
+
+/* MARK: - while
+    
+    while condition {
+        code
+    }
+ */
+
+while integers.count > 1 {
+    integers.removeLast()
+}
+
+/* MARK: - repeat-while
+    
+    repeat {
+        code
+    } while condtion {
+ */
+//repeat {
+//    integers.removeLast()
+//} while integers.count > 0
+
+
+//MARK: - Optional
+/*
+    1. nil의 가능성을 문서화 하지 않아도 코드만으로 충분히 표현가능
+        - 문서/주석 작성 시간 절약
+    2. 전달받은 값이 옵셔널이 아니라면 nil체크하지 않더라도 안심하고 사용
+        - 효율적인 코딩
+        - 예외 상황을 최소화하는 안전한 코딩
+ 
+    enum Optional<Wrapped> : ExpressibleByNilLiteral {
+        case none
+        case some(Wrapped)
+    }
+ 
+    let optionalValue: Optional<Int> = nil
+    let optionalValue: Int? = nil
+ */
+ 
+// someOptionalParam can be nil
+func someFunction(someOptionalParam: Int?) {
+    // ...
+}
+
+// someParam must not be nil
+func someFunction(someParam: Int) {
+    // ...
+}
+
+someFunction(someOptionalParam: nil)
+//someFunction(someParam: nil) // nil 불가능
+
+// Implicitly Unwrapped Optional(암시적 추출 옵셔널)
+var optionalValue: Int! = 100       // !
+
+// 기존 변수처럼 사용 가능
+optionalValue = optionalValue + 1
+
+// nil 할당 가능
+optionalValue = nil
+// 잘못된 접근으로 인한 런타임 오류 발생(nil값에 1을 넣었기 때문)
+//optionalValue = optionalValue + 1
+
+// Optional
+var optionalValue1: Int? = 100
+optionalValue = nil
+// 기존 변수처럼 사용불가 - 옵셔널과 일반 값은 다른 타입이므로 연산이 불가함
+//optionalValue = optionalValue + 1
+
+// 결론: !와 ?의 차이는 기존 변수와의 연산 불가와 가능
+
+
+//MARK: -Optional Unwrapping (옵셔널 값 추출하기)
+
+func printName(_ name: String) {
+    print(name)
+}
+var myName: String? = nil
+//printName(myName)   // 전달되는 값의 타입이 다르기 때문에 컴파일 오류발생
+
+// Optional 바인딩하기 - 1
+func printName1(_ name: String) {
+    print(name)
+}
+var myName2: String! = nil
+
+// name 상수는 if-let 구문 내에서만 사용가능합니다.
+if let name: String = myName {
+    printName(name)
+} else {
+    print("myName == nil")
+}
+
+//printName(name) // 상수 사용범위를 벗어났기 때문에 컴파일 오류 발생
+
+var myName1: String? = "yang"
+var yourName: String? = nil
+//
+//if let name = myName1, let friend = yourName {
+//    print("\(name) and \(friend)")
+//}
+// yourName이 nil이기 때문에 실행되지 않습니다.
+
+yourName = "hana"
+//
+//if let name = myName1, let friend = yourName {
+//    print("\(name) nad \(friend)")
+//}
+// yang and hana
+
+//MARK: - Force Unwrapping(강제로 옵셔널 추출) - !를 붙인다.
+
+// func printName(_ name: String) {
+//     print(name)
+// }
+//
+// var myName: String? = "yang"
+//
+// printName(myName!)  // yang
+//
+// myName = nil
+// print(myName!)  // 강제추출시 값이 없으므로 런타임 오류 발생
+//
+// var yourName: String! = nil
+//
+// printName(yourName) // nil 값이 전달되기 때문에 런타임 오류 발생
+
+
+//MARK: - 구조체(struct)
+
+/* - 정의
+    
+    struct 이름 {
+        /* 구현부 */
+    }
+ 
+ */
+
+//MARK: 프로퍼티 및 메서드
+// 프로퍼티 = struct 안의 변수
+// 메서드 - struct 안의 함수
+struct Sample {
+    var mutableProperty: Int = 100  // 가변 프로퍼티
+    let immutableProperty: Int = 100    // 불변 프로퍼티
+    
+    static var typeProperty: Int = 100  // 타입 프로퍼티
+    
+    // 인스턴스 메서드
+    func instanceMethod() {
+        print("instance method")
+    }
+    
+    // 타입 메서드
+    static func typeMethod() {
+        print("type method")
+        
+    }
+}
+
+//MARK: 구조체 사용
+
+// 가변 인스턴스
+var mutable: Sample = Sample()
+
+//mutable.mutableProperty = 200
+//mutable.immutableProperty = 200 // 불변 프로퍼티이므로 오류
+
+// 불변 인스턴스
+let immutable: Sample = Sample()
+
+//mutable.mutableProperty = 200
+//mutable.immutableProperty = 200
+
+// 타입 프로퍼티 및 메서드
+Sample.typeProperty = 300
+Sample.typeMethod()     // type method
+
+//MARK: - 학생 구조체
+
+struct Student {
+    var name: String = "unknown"
+    var `class`: String = "Swift"   // 키워드
+    
+    static func selfIntroduce() {
+        print("학생타입입니다")
+    }
+    
+    func selfIntorduce() {
+        print("저는 \(self.class)반 \(name)입니다.")
+    }
+}
+
+Student.selfIntroduce() // 학생타입입니다
+
+var yagom: Student = Student()
+yagom.name = "yagom"
+yagom.class = "스위프트"
+yagom.selfIntorduce()   // 저는 스위프트반 yagom입니다.
+
+let jina: Student = Student()
+
+// 불변 인스턴스이므로 프로퍼티 값 변경 불가
+//jina.name = "jina" //컴파일 오류
+jina.selfIntorduce()
+
+
+
+
+
+
+
+
+

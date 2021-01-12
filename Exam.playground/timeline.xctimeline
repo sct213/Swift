@@ -3,7 +3,13 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/dead_line/Languages/Swift/Exam.playground#CharacterRangeLen=20&amp;CharacterRangeLoc=4561&amp;EndingColumnNumber=0&amp;EndingLineNumber=231&amp;StartingColumnNumber=16&amp;StartingLineNumber=230&amp;Timestamp=632120252.410993"
+         documentLocation = "file:///Users/dead_line/Languages/Swift/Exam.playground#CharacterRangeLen=9957&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=541&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=632142424.774155"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/dead_line/Languages/Swift/Exam.playground#CharacterRangeLen=14&amp;CharacterRangeLoc=6010&amp;EndingColumnNumber=0&amp;EndingLineNumber=321&amp;StartingColumnNumber=5&amp;StartingLineNumber=320&amp;Timestamp=632142424.774323"
+         lockedSize = "{175, 50}"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
