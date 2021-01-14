@@ -531,11 +531,3 @@ let jina: Student = Student()
 //jina.name = "jina" //컴파일 오류
 jina.selfIntorduce()
 
-
-
-
-
-
-
-
-
