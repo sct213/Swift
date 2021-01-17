@@ -51,8 +51,12 @@ default:
    print("others")
 }
 
-
-
-
+switch num {
+case let n where n <= 10:
+    print(n)
+default:
+    print("others")
+}
+// case에 where을 넣어 조건을 한번 더 걸어 줌
 
 //: [Next](@next)

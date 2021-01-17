@@ -33,12 +33,32 @@ import UIKit
  
  ![custom-operator](custom-operator.png)
  */*/
+prefix operator +++
 
+extension Int {
+    static prefix func +++(num: inout Int) {
+        num += 2
+    }
+}
 
+var a = 1
++++a
+a
 
+precedencegroup MyPrecedence {
+    higherThan: AdditionPrecedence
+}
 
+// 곱하기 연산자에 포함시킴
+infix operator *+*: MultiplicationPrecedence
 
+extension Int {
+    static func *+*(left: Int, right: Int) -> Int {
+        return (left * right) + (left * right)
+    }
+}
 
+1 *+* 2 + 3
 
 
 

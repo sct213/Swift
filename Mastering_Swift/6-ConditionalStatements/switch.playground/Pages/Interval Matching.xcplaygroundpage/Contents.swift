@@ -27,22 +27,21 @@ import Foundation
 /*:
  # Interval Matching
  */
-
 let temperature = -8
 
 switch temperature {
 case ..<10:
-   print("Cold")
+    print("Cold")
 case 11...20:
-   print("Cool")
+    print("Cool")
 case 21...27:
-   print("Warm")
+    print("Warm")
 case 28... :
-   print("Hot")
+    print("Hot")
 default:
-   break
+    break
 }
 
-
+// switch에 범위 연산자 사용 가능 
 
 //: [Next](@next)
