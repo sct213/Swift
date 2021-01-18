@@ -24,13 +24,39 @@ import UIKit
 /*:
  # Expression Pattern
  */
+let a = 1
 
-
-
+switch a {
+// 0부터 10까지 print("0 ~ 10")
+case 0...10:
+    print("0 ~ 10")
+// case문이 실행되지 않는다면 default문 실행
+default:
+    break
+}
 /*:
  ## Pattern Matching Operator
  ````
  a ~= b
  ````
  */
+struct Size {
+    var width = 0.0
+    var height = 0.0
+    
+    static func ~=(left: Range<Int>, right: Size) -> Bool {
+        return left.contains(Int(right.width))
+    }
+}
 
+let s = Size(width: 10, height: 20)
+
+
+switch s {
+case 1..<9:
+    print("1 ~ 9")
+case 10..<99:
+    print("10 ~ 99")
+default:
+    break
+}
