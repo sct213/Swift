@@ -44,6 +44,7 @@ struct Size {
     var width = 0.0
     var height = 0.0
     
+    // left: 패턴의 자료형(case), right: valueExpression, return -> Bool
     static func ~=(left: Range<Int>, right: Size) -> Bool {
         return left.contains(Int(right.width))
     }
@@ -51,7 +52,7 @@ struct Size {
 
 let s = Size(width: 10, height: 20)
 
-
+// size는 매칭할 수 없음
 switch s {
 case 1..<9:
     print("1 ~ 9")

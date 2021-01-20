@@ -30,8 +30,21 @@ import Foundation
  ## Syntax
  ![repeat-while](syntax-repeat-while.png)
  */
+// repeat: 코드를 먼저 실행 후 조건을 판단 true라면 repeat의 statement를 실행
 
+// 조건 먼저 = while
+var num = 100
+while num < 100 {
+    num += 1
+}
+num
 
+// 코드 먼저 = repeat
+num = 100
+repeat {
+    num += 1
+} while num < 100
+num
 
 
 

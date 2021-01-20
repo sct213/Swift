@@ -28,7 +28,17 @@ import UIKit
  ## Syntax
  ![while](syntax-while.png)
  */
+// 조건이 true라면 반복
+// 반복횟수를 쉽게 예측할 수 없음
 
+var num = 1
+var sum = 0
+
+while num <= 100 {
+    sum += num
+    num += 1
+}
+sum
 
 
 
