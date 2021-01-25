@@ -1,52 +1,22 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-
 import UIKit
 
 /*:
  # Optionals
  */
+// 값을 가지지 않아도 되는 것
+// 값이 없는 변수나 상수를 사용하기 위해 Optional을 사용함
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+let optionalNum: Int? = nil  // ?를 통해 Optional 설정   // nil또한 없다라는 표현
 /*:
  ## Optional Type
  ![optional-type-syntax](optional-type-syntax.png)
  */
+let str: String = "Swift"   // Non-optional Type
+let optionalStr: String? = nil  // Optional Type
 
+let a: Int? = nil
 
-
-
-
-
+let b = a
+b
 
 //: [Next](@next)

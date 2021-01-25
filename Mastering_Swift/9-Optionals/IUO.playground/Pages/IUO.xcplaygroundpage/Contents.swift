@@ -1,34 +1,22 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-
 import Foundation
 
 /*:
  # Implicitly Unwrapped Optionals
  ![iuo](iuo.png)
  */
+// 암시적 추출 옵셔널
+// 값을 강제로 자동으로 추출하는 옵셔널
+// 실제 코딩에서 잘 사용되진 않음
+// 자료형 뒤에 !가 오는 것은 IUO
+let num: Int! = 12
 
+// 타입 추론을 통한 변수나 상수는 ?로 됨
+let a = num
+a
 
+// 타입을 지정하면 !가 대입됨
+let b: Int = num
+b
 
-
-
-
+// IUO도 옵셔널이나 자동으로 추출됨, 강제 추출도 가능, 바인딩 가능
+// 옵셔널과 바인딩을 사용하는 게 더 효과적인 에러 방지이므로 IUO는 이론적으로만 알고 있자
