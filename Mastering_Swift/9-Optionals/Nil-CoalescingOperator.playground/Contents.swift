@@ -12,6 +12,7 @@ if let inputName = input {
     msg = "Hello, Stranger"
 }
 
+// ?? 연산자 
 print(msg)
 
 // 위 코드와 같음
@@ -31,3 +32,4 @@ print(str)
 // 반대로 왼쪽 피연산자에 값이 없다면 오른쪽을 평가함
 str = "Hello, " + (input ?? "Stranger")
 print(str)
+
