@@ -1,76 +1,61 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # Optional Pattern
  */
-
+// 단축문법
 let a: Int? = 0
 
 let b: Optional<Int> = 0
 
+if a == nil {
+    
+}
 
+if a == .none {
+    
+}
+
+if a == 0 {
+    
+}
+
+if a == .some(0) {
+    
+}
+
+// 아래 코드를 단축한 것
 if let x = a {
-   print(x)
+    print(x)
 }
 
 if case .some(let x) = a {
-   print(x)
+    print(x)
 }
 
 
+// 위 코드를 옵셔널로 변경
 if case let x? = a {
-   print(x)
+    print(x)
+    // x의 타입은 Int.
 }
 
+// 옵셔널은 코드가 간결해지는 장점이 있음
 
 let list: [Int?] = [0, nil, nil, 3, nil, 5]
 
+// nil은 출력하지 않음
 for item in list {
-   guard let x = item else { continue }
-   print(x)
+    // 바인딩이 되지 않으면 continue
+    guard let x = item else { continue }
+    print(x)
 }
 
-
+// 옵셔널 패턴으로 구현
+// list의 값이 nil이면 바인딩하지 않음
 for case let x? in list {
-   print(x)
+    print(x)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
