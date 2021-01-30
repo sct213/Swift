@@ -44,6 +44,45 @@ import UIKit
  ## Defining Functions
  ![define](define.png)
  */
+func sayHello() {
+    print("Hello")
+}
+
+sayHello()
+
+func sayHello(_ name: String) {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
