@@ -1,26 +1,4 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import Foundation
-
 /*:
  # Syntax Optimization
  */
@@ -34,6 +12,40 @@ let products = [
    "Apple Watch Series 4", "Apple Watch Nike+"
 ]
 
+var proModels = products.filter({ (name: String) -> Bool in
+    return name.contains("Pro")
+})
+
+// 문법 최적화
+products.filter({
+    $0.contains("Pro")
+})
+
+// 위와 완전히 동일함
+products.filter {
+    $0.contains("Pro")
+}
 
 
+proModels.sort(by: { (lhs: String, rhs: String) -> Bool in
+    return lhs.caseInsensitiveCompare(rhs) == .orderedAscending
+})
 
+// 1. 파라미터형식과 리턴형식 생략
+// 2. 파라미터 이름을 생략 후 숏핸드 아규먼트로 대체($)
+// 3. 단일 리턴이라면 return 생략
+// 4. 마지막 파라미터라면 trailing으로 작성(아규먼트 삭제)
+// 5. 괄호 제거
+
+proModels.sort {
+    $0.caseInsensitiveCompare($1) == .orderedAscending
+}
+
+// 정식 코드를 구현 하고 문법 최적화하기.
+proModels.contains(where: { (lhs: String) -> Bool in
+    return lhs.contains(lhs)
+})
+/*:
+ - Item1
+ - Item2
+ - Item3
