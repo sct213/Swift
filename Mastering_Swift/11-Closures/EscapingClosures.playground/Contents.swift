@@ -1,63 +1,51 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
-
 /*:
  # Escaping Closure
  */
+// 함수의 실행흐름 밖에 있는 Closure를 위한 속성
+func performNonEscaping(closure: () -> ()) {
+    print("start")
+    closure()
+    print("end")
+}
+
+// 클로저 전달
+performNonEscaping {
+    print("closure")
+}
+// 함수의 실행 흐름을 탈출하지 않음.
 
 
 
+//func performEscaping(closure: () -> ()) {
+//    print("Start")
+//
+//    // 함수의 실행이 끝난 다음 호출되기 때문에 에러가 발생함.
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//        closure()
+//    }
+//
+//    print("End")
+//}
+ 
 
+func performEscaping(closure: @escaping () -> ()) {
+    print("Start")
+    
+    var a = 12
+    
+    // 함수의 실행이 끝난 다음 호출되기 때문에 에러가 발생함.
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        closure()
+        print(a)
+    }
+    
+    print("End")
+}
 
+// Start, End가 출력된 이후 closure가 출력됨
+performEscaping {
+    print("closure")
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 함수가 종료되면 클로저도 함께 제거됨.
