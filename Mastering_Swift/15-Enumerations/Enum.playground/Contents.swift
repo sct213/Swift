@@ -1,50 +1,45 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-import UIKit
-
 /*:
  # Enumerations
  ![enum](enum.png)
  */
+// 독립적인 자료형이다.
+// 사용 이유: 가독성, 안전성
 
+let left = 0
+let center = 1
+let right = 2
 
-
-
-
-
-
-
-
-
+var alignment = center
 /*:
  ## Syntax
  ![syntax](enum-syntax.png)
  */
+enum Alignment {
+    case left
+    case right
+    case center
+}
+Alignment.center
 
+// 열거형 case는 독립적인 값.
+var textAlignment = Alignment.center
 
+// 앞에서 열거형을 저장했기에, 열거형 이름 생략 가능
+textAlignment = .left
 
+// 열거형 비교
+if textAlignment == .center {
+    
+}
 
-
-
+switch textAlignment {
+    case .left:
+        print("left")
+    case .right:
+        print("right")
+    case .center:
+        print("center")
+}
 
 
 
