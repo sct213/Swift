@@ -53,17 +53,25 @@ var name: String = "Default" {
     }
 }
 
+struct Point {
+    var x: Int = 0
+    var y: Int = 0
+    
+    var oppositePoint: Point {
+        get {
+            return Point(x: -x, y: -y)
+        }
+        set(value) {
+            x = -value.x
+            y = -value.y
+        }
+    }
+}
 
-print("\(name = "Default")")
+var test: Point = Point(x: 1, y: 2)
+print(test)
 
-
-
-
-
-
-
-
-
-
-
+// 음수를 파라미터로 받았으나, set에 대입되어 양수로 출력됨
+test.oppositePoint = Point(x: -3, y: -4)
+print(test)
 
