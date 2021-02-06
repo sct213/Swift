@@ -49,7 +49,7 @@ var name: String = "Default" {
             print("기존의 값과 일치합니다.")
             return
         }
-        print(oldValue, "->", name)
+        print(oldValue, "=>", name)
     }
 }
 
