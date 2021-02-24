@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -26,12 +5,52 @@ import UIKit
  ![defer](defer.png)
  */
 
+// 자원을 정리할 때 활용함
+func processFile(path: String) {
+    print("1")
+    let file = FileHandle(forReadingAtPath: path)
+    
+    // Process
+    
+    // 함수가 종료될 때까지 연기됨
+    // 항상 함수가 종료될 때 실행된다.(맨 마지막)
+    defer {
+        print("2")
+        file?.closeFile()
+    }
+    
+    if path.hasSuffix(".jpg") {
+        print("3")
+        return
+    }
+    
+    defer {
+        print("5")
+    }
+    
+    print("4")
+}
+
+//processFile(path: "file.jpg")
 
 
-
-
-
-
+// 호출된 순서대로 코드를 예약한다.
+// * 특별한 일이 없다면 defer문을 하나만 작성하는 것이 바람직하다.
+func testDefer() {
+    // 처음 예약
+    defer {
+        print(1)
+    }
+    // 두번째 예약
+    defer  {
+        print(2)
+    }
+    // 세번째 예약
+    defer {
+        print(3)
+    }
+}
+testDefer()
 
 
 
