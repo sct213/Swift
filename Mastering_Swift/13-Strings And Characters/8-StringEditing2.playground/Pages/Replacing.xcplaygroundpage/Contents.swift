@@ -17,4 +17,8 @@ if let range = str.range(of: "Hello") {
 
 var s = str.replacingOccurrences(of: "Swift", with: "Awesome Swift")
 
+s = str.replacingOccurrences(of: "swift", with: "Awesome Swift")
+
+s = str.replacingOccurrences(of: "swift", with: "Awesome Swift", options: [.caseInsensitive])
+
 //: [Next](@next)
