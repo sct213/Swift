@@ -52,7 +52,10 @@ func testDefer() {
 }
 testDefer()
 
-
+/**
+    1. defer는 역순으로 실행된다.
+    2. defer가 선언 된 코드 블록을 빠져나가기 전에 실행된다.
+ */
 
 
 
