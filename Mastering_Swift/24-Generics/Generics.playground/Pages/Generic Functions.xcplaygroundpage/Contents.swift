@@ -1,25 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-
 import UIKit
 
 /*:
@@ -57,17 +35,27 @@ func swapDouble(lhs: inout Double, rhs: inout Double) {
  ## Generic Function
  ![generic-function](generic-function.png)
  */
-
+// 형식에 관계없이 모두 호출 가능함
 func swapValue<T>(lhs: inout T, rhs: inout T) {
    let tmp = lhs
    lhs = rhs
    rhs = tmp
 }
 
+a = 1
+b = 2
+swapValue(lhs: &a, rhs: &b)
+a
+b
 
+var c = 1.2
+var d = 3.4
+swapValue(lhs: &c, rhs: &d)
+c
+d
 
-
-
+// 하나의 구현으로 모든 가능성을 처리함.
+// <T>는 Place Holder
 
 
 

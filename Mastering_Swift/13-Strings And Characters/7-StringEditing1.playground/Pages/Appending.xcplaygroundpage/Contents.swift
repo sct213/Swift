@@ -25,6 +25,13 @@ import UIKit
  # Appending Strings and Characters
  */
 
+var str = "Hello"
+str.append(", ")
+str
+
+let s = str.appending("Swift")
+str
+s
 
 
 
