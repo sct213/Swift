@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -26,11 +5,47 @@ import UIKit
  ![self](self.png)
  */
 
-class Size {
-   var width = 0.0
-   var height = 0.0
+struct Size {
+    var width = 0.0
+    var height = 0.0
+    
+    mutating func reset(value: Double) {
+//        width = value
+//        height = value
+        // class에선 사용 불가함
+        self = Size(width: value, height: value)
+    }
+//    // self 생략 가능
+//    func calcArea() -> Double {
+//        return self.width * self.height
+//    }
+//
+//    var area: Double {
+//        return  calcArea()
+//    }
+//
+//    // self.를 사용하여 속성과 파라미터를 구별함
+//    func update(width: Double, height: Double) {
+//        self.width = width
+//        self.height = height
+//    }
+//
+//    // self를 생략할 수 없는 경우
+//    func doSomething() {
+//        let c = { self.width * self.height }
+//    }
+//
+//    static let unit = ""
+//
+//    // 형식 메서드
+//    static func doSomething() {
+//        self.width
+//        unit
+//    }
 }
 
+// self는 현재 인스턴스에 접근하기 위해 사용
+// 타입 멤버에서 사용하면 인스턴스가 아닌 형식 자체를 나타낸다.
 
 
 
@@ -52,3 +67,12 @@ class Size {
  # super
  ![super](super.png)
  */
+
+
+
+
+
+
+
+
+
