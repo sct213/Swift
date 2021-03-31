@@ -1,24 +1,4 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
 //: [Previous](@previous)
 
 import Foundation
@@ -26,17 +6,55 @@ import Foundation
 /*:
  # Removing Substrings
  */
+var str = "Hello, Awesome Swift!!"
+
+let lastCharIndex = str.index(before: str.endIndex)
+var removed = str.remove(at: lastCharIndex)
+
+// 삭제된 문자 저장
+removed
+str
+
+removed = str.removeFirst()
+removed
+str
+
+// 처음부터 2개의 문자를 삭제
+str.removeFirst(2)
+str
+
+str.removeLast()
+str
+
+// 전달한 숫자만큼 문자를 삭제함
+str.removeLast(2)
+str
+
+if let range = str.range(of: "Awesome") {
+    str.removeSubrange(range)
+    str
+}
+
+// 모든 문자를 삭제하고 빈 문자를 return
+str.removeAll()
+
+// 주소는 삭제하지 않음
+str.removeAll(keepingCapacity: true)
 
 
+/*
+ dropLast
+ */
+str = "Hello, Awesome Swift!!!"
 
+// 원본 문자열에서 마지막 문자를 제외한 나머지를 return
+var substr = str.dropLast()
 
+// 마지막에서 3번째까지.
+substr = str.dropLast(3)
 
-
-
-
-
-
-
-
-
-
+// 조건을 건다.(,앞의 모든 문자열을 제거)
+substr = str.drop(while: { (ch) -> Bool in
+    return ch != ","
+})
+substr
