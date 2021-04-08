@@ -45,14 +45,18 @@ let b = ["a", "b", "c"]
 /*:
  # Finding Elements
  */
+let nums = [1, 2, 3, 1, 4, 5, 2, 6, 7, 5, 0]
+
+nums.contains(1)
+nums.contains(8)
 
 
+nums.contains { (n) -> Bool in
+    return n % 2 == 0
+}
 
 
-
-
-
-
+nums.first(where: (Int) )
 
 
 
